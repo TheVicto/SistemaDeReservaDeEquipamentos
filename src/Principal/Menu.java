@@ -5,9 +5,18 @@
  */
 package Principal;
 
-import Visao.Cadastrar.NewJFrame;
-import Visao.Cadastrar.NewJFrame1;
-import Visao.Cadastrar.NewJFrame2;
+import Visao.Alterar.AlterarEquipamento_Local;
+import Visao.Alterar.AlterarProfessor;
+import Visao.Alterar.AlterarReserva;
+import Visao.Cadastrar.CadastrarProfessor;
+import Visao.Cadastrar.CadastroEquipqmento_Local;
+import Visao.Cadastrar.CadastroReserva;
+import Visao.Consultar.ConsultarEquipamento_Local;
+import Visao.Consultar.ConsultarProfessor;
+import Visao.Consultar.ConsultarReserva;
+import Visao.Excluir.ExcluirEquipamento_Local;
+import Visao.Excluir.ExcluirProfessor;
+import Visao.Excluir.ExcluirReserva;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
@@ -86,12 +95,27 @@ public class Menu extends javax.swing.JFrame {
         jMenu3.setText("Alterar");
 
         jMenuItem1.setText("Professor(a)");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem1);
 
         jMenuItem2.setText("Reserva");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuItem3.setText("Equipamento/Local");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuBar1.add(jMenu3);
@@ -127,12 +151,27 @@ public class Menu extends javax.swing.JFrame {
         jMenu6.setText("Consultar");
 
         jMenuItem7.setText("Professor(a)");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem7);
 
         jMenuItem8.setText("Reserva");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem8);
 
         jMenuItem9.setText("Equipamento/Local");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem9);
 
         jMenuBar1.add(jMenu6);
@@ -140,12 +179,27 @@ public class Menu extends javax.swing.JFrame {
         jMenu7.setText("Excluir");
 
         jMenuItem10.setText("Professor(a)");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem10);
 
         jMenuItem11.setText("Reserva");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem11);
 
         jMenuItem12.setText("Equipamento/Local");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem12);
 
         jMenuBar1.add(jMenu7);
@@ -156,22 +210,84 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        NewJFrame cadprof = new NewJFrame();
+        CadastrarProfessor cadprof = new CadastrarProfessor();
         cadprof.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        NewJFrame2 cadreserv = new NewJFrame2();
+        CadastroReserva cadreserv = new CadastroReserva();
         cadreserv.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        NewJFrame1 cadeqloc = new NewJFrame1();
+        CadastroEquipqmento_Local cadeqloc = new CadastroEquipqmento_Local();
         cadeqloc.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        AlterarProfessor AlterarProf = new AlterarProfessor();
+        AlterarProf.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        AlterarReserva AlterarRes = new AlterarReserva();
+        AlterarRes.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+         AlterarEquipamento_Local AlterarEqui = new AlterarEquipamento_Local();
+        AlterarEqui.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        ConsultarProfessor ConsultarPro = new ConsultarProfessor();
+        ConsultarPro.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+         ConsultarReserva ConsultarRes = new ConsultarReserva();
+        ConsultarRes.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+         ConsultarEquipamento_Local ConsultarEquip = new ConsultarEquipamento_Local();
+        ConsultarEquip.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+         ExcluirProfessor ExcluirProfes = new ExcluirProfessor();
+        ExcluirProfes.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        ExcluirReserva ExcluirRese = new ExcluirReserva();
+        ExcluirRese.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+         ExcluirEquipamento_Local ExcluirEquip = new ExcluirEquipamento_Local();
+        ExcluirEquip.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments

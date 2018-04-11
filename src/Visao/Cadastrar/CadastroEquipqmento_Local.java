@@ -3,24 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Principal;
+package Visao.Cadastrar;
 
-import Visao.Cadastrar.CadastrarProfessor;
+import DAO.Conexao;
+import DAO.EquipamentoDAO;
+import MODELO.Equipamento;
+import Principal.Menu;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author H4CK3R
+ * @author aluno
  */
-public class Login extends javax.swing.JFrame {
+public class CadastroEquipqmento_Local extends javax.swing.JFrame {
 
     /**
-     * Creates new form Login
+     * Creates new form NewJFrame
      */
-    public Login() {
+    public CadastroEquipqmento_Local() {
         initComponents();
         setLocationRelativeTo(this);
-        jProgressBar1.setVisible(false);
     }
 
     /**
@@ -34,48 +37,50 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
-        setMinimumSize(new java.awt.Dimension(400, 333));
+        setTitle("Cadastro e Equipamento/Local");
+        setMinimumSize(new java.awt.Dimension(400, 329));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setText("Nome:");
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Cadastro de Equipamento/Local");
+        jLabel2.setOpaque(true);
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(170, 110, 40, 20);
+        jLabel2.setBounds(0, 0, 400, 30);
 
-        jLabel3.setText("Senha:");
+        jLabel3.setText("Nome do Equipamento/Local:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(170, 140, 40, 20);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(220, 110, 140, 20);
+        jLabel3.setBounds(10, 50, 150, 20);
 
-        jPasswordField1.setText("jPasswordField1");
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(220, 140, 140, 20);
-        getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(140, 190, 240, 14);
+        jLabel4.setText("Tipo:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(70, 80, 60, 20);
 
-        jButton1.setBackground(new java.awt.Color(51, 204, 0));
-        jButton1.setText("ENTRA");
+        jButton1.setBackground(new java.awt.Color(0, 255, 0));
+        jButton1.setText("Cadastrar");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(140, 230, 80, 40);
+        jButton1.setBounds(60, 260, 100, 40);
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setText("SAIR");
+        jButton2.setBackground(new java.awt.Color(248, 248, 9));
+        jButton2.setText("Cancelar");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,9 +88,15 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(300, 230, 80, 40);
+        jButton2.setBounds(200, 260, 100, 40);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(180, 50, 210, 20);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(180, 80, 210, 20);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.jpg"))); // NOI18N
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 400, 300);
 
@@ -93,41 +104,46 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.exit(0);
+        int i = JOptionPane.showConfirmDialog(null, "deseja realmente cancelar o cadastro");
+        if(i == 0){
+            dispose();
+            Menu j = new Menu();
+            j.setVisible(true);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nome = jTextField1.getText();
-        String senha = jPasswordField1.getText();
+        String NomeE = jTextField1.getText();
+        String tipo = jTextField2.getText();
         
-        if (nome.equalsIgnoreCase("") || senha.equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "nenhum campo pode estar vazio");
-            jTextField1.setText("");
-            jPasswordField1.setText("");
-        } else {
-        jProgressBar1.setVisible(true);
-            if(nome.equals("rafaela") || senha.equals("123")){
-                new Thread() {
-                    public void run (){
-                        for(int i = 0; i < 150; i++){
-                            jProgressBar1.setValue(i);
-                            try{
-                                Thread.sleep(60);
-                            } catch (Exception ex){
-                                ex.getMessage();
-                            }
-                        }
-                        Menu j = new Menu();
-                        j.setVisible(true);
-                        dispose();
-                    }
-                }.start();
-           } else {
-                JOptionPane.showMessageDialog(null,"usuario ou senha invalido");
-                jTextField1.setText("");
-                jPasswordField1.setText("");
-            }
-        }           
+        
+        if(NomeE.equals("")||tipo.equals("")){
+            JOptionPane.showMessageDialog(null,"Nenhum campo pode estar vazio");
+        }else{
+        Connection con = Conexao.AbrirConexao();
+        EquipamentoDAO sql = new EquipamentoDAO(con);
+        Equipamento a = new Equipamento();
+        
+        a.setNome(NomeE);
+        a.setTipo(tipo);
+     
+        
+        sql.Inserir_Equipamento(a);
+        Conexao.FechaConexao(con);
+        
+        
+        
+        jTextField1.setText("");
+        jTextField2.setText("");
+        
+        
+        JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso");
+        
+        dispose();
+        
+        Menu j = new Menu();
+        j.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -147,20 +163,23 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroEquipqmento_Local.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroEquipqmento_Local.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroEquipqmento_Local.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroEquipqmento_Local.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new CadastroEquipqmento_Local().setVisible(true);
             }
         });
     }
@@ -171,8 +190,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
